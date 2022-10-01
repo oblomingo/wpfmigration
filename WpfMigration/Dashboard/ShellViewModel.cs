@@ -4,34 +4,11 @@ namespace WpfMigration.Dashboard
 {
     public class ShellViewModel : PropertyChangedBase
     {
-        IEventAggregator events = new EventAggregator();
-
         private string _message;
- 
-        public string Message
-        {
-            get { return _message; }
-            set
-            {
-                _message = value;
-                NotifyOfPropertyChange(() => Message);
-            }
-        }
- 
-        private int _pressCount;
 
-        public ButtonsViewModel ButtonsVM
-        {
-            get;
-            set;
-        }
- 
-        public TextViewModel TextVM
-        {
-            get;
-            set;
-        }
- 
+        private int _pressCount;
+        private readonly IEventAggregator events = new EventAggregator();
+
         public ShellViewModel()
         {
             Message = "Hello World";
@@ -39,11 +16,24 @@ namespace WpfMigration.Dashboard
             ButtonsVM = new ButtonsViewModel(events);
             TextVM = new TextViewModel(events);
         }
- 
+
+        public string Message
+        {
+            get => _message;
+            set
+            {
+                _message = value;
+                NotifyOfPropertyChange(() => Message);
+            }
+        }
+
+        public ButtonsViewModel ButtonsVM { get; set; }
+
+        public TextViewModel TextVM { get; set; }
+
         public void ChangeMessage(int incrementBy)
         {
             _pressCount += incrementBy;
- 
             Message = "Presses = " + _pressCount;
         }
     }
