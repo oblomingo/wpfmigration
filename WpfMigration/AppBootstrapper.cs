@@ -12,7 +12,7 @@ namespace WpfMigration
  
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {
-            DisplayRootViewFor<ShellViewModel>();
+            DisplayRootViewForAsync<ShellViewModel>();
         }
     }
 }

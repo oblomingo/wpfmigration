@@ -7,17 +7,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
     xmlns:cal="http://www.caliburnproject.org" 
-    xmlns:local="clr-namespace:WpfMigration.Dashboard">
+    xmlns:local="clr-namespace:WpfMigration.Dashboard" 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
     <Grid Width="200" Height="500">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <!--<Button Content="Press Me" VerticalAlignment="Top" cal:Message.Attach="[Event Click] = [Action ChangeMessage(2)]" />-->
-        <Button Grid.Row="0" Content="Press Me" VerticalAlignment="Top">
+        <Button Content="Press Me" VerticalAlignment="Top" cal:Message.Attach="[Event Click] = [Action ChangeMessage(2)]" />
+        <!-- Doesn't work,The tag 'Interaction.Triggers' does not exist in XML namespace 'http://schemas.microsoft.com/expression/2010/interactivity' -->
+        <!--<Button Grid.Row="0" Content="Press Me" VerticalAlignment="Top">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <cal:ActionMessage MethodName="ChangeMessage">
@@ -25,7 +26,7 @@
                     </cal:ActionMessage>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-        </Button>
+        </Button>-->
         <TextBlock Grid.Row="1" Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <local:ButtonsView cal:Bind.Model="{Binding ButtonsVM}" />

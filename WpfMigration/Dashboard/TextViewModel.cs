@@ -1,4 +1,6 @@
-﻿using Caliburn.Micro;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Caliburn.Micro;
 using WpfMigration.Messages;
 
 namespace WpfMigration.Dashboard
@@ -25,10 +27,11 @@ namespace WpfMigration.Dashboard
                 NotifyOfPropertyChange(() => Text);
             }
         }
-
-        public void Handle(ChangeTextMessage message)
+        
+        public Task HandleAsync(ChangeTextMessage message, CancellationToken cancellationToken)
         {
             Text = message.Text;
+            return Task.CompletedTask;
         }
     }
 }

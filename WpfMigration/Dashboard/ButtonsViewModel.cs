@@ -14,17 +14,17 @@ namespace WpfMigration.Dashboard
 
         public void Button1()
         {
-            _events.PublishOnUIThread(new ChangeTextMessage("Button 1 Pressed"));
+            _events.PublishOnUIThreadAsync(new ChangeTextMessage("Button 1 Pressed"));
         }
 
         public void Button2()
         {
-            _events.PublishOnUIThread(new ChangeTextMessage("Button 2 Pressed"));
+            _events.PublishOnUIThreadAsync(new ChangeTextMessage("Button 2 Pressed"));
         }
 
         public void Button3()
         {
-            _events.PublishOnUIThread(new ChangeTextMessage("Button 3 Pressed"));
+            _events.PublishOnUIThreadAsync(new ChangeTextMessage("Button 3 Pressed"));
         }
     }
 }
